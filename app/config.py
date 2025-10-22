@@ -13,5 +13,6 @@ class Settings(BaseSettings): # type: ignore
 
     class Config:
         env_file = ".env"
+        case_sensitive = False 
 
 settings = Settings() # type: ignore
