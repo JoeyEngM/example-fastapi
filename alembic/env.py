@@ -11,14 +11,6 @@ from app.config import settings
 # access to the values within the .ini file in use.
 config = context.config
 
-# DEBUG: Print the settings to see what values are being used
-print(f"DEBUG - database_username: {settings.database_username}")
-print(f"DEBUG - database_hostname: {settings.database_hostname}")
-print(f"DEBUG - database_port: {settings.database_port}")
-print(f"DEBUG - database_name: {settings.database_name}")
-# Don't print password for security, just check if it exists
-print(f"DEBUG - database_password first 5 chars: {settings.database_password[:5]}")
-
 config.set_main_option("sqlalchemy.url", f"postgresql+psycopg2://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}")
 
 # Interpret the config file for Python logging.
